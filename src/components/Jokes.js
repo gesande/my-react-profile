@@ -11,13 +11,15 @@ class Jokes extends Component {
   componentDidMount() {
     fetch("https://karljoke.herokuapp.com/jokes/random_ten")
       .then((response) => response.json())
-      .then((json) => this.setState({ joke: json }));
+      .then((json) => this.setState({ joke: json }))
+      .catch((error) => alert(error.message));
   }
 
   fetchJokes = () => {
     fetch("https://karljoke.herokuapp.com/jokes/ten")
       .then((response) => response.json())
-      .then((json) => this.setState({ jokes: json }));
+      .then((json) => this.setState({ jokes: json }))
+      .catch((error) => alert(error.message));
   };
 
   render() {
